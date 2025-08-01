@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0">
+  <info>
+    <title>HIR - National Library of Medicine [Brackets]</title>
+    <id>http://www.zotero.org/styles/hir-nlm-brackets</id>
+    <link href="http://www.zotero.org/styles/hir-nlm-brackets" rel="self"/>
+    <link href="http://www.ncbi.nlm.nih.gov/books/NBK7282/" rel="documentation"/>
+    <author>
+      <name>Modified by ChatGPT for HIR</name>
+    </author>
+    <category citation-format="numeric" field="medicine"/>
+    <summary>Modified NLM style to display in-text citations in square brackets [1] instead of (1).</summary>
+    <updated>2025-08-01T00:00:00+00:00</updated>
+  </info>
+
+  <macro name="author">
+    <names variable="author">
+      <name and="text" delimiter=", " initialize-with=". " name-as-sort-order="all"/>
+      <label form="short" prefix=", " text-case="lowercase" suffix="."/>
+      <substitute>
+        <names variable="editor"/>
+      </substitute>
+    </names>
+  </macro>
+
+  <macro name="title">
+    <text variable="title" suffix=". "/>
+  </macro>
+
+  <macro name="container-title">
+    <text variable="container-title" form="short" suffix=". "/>
+  </macro>
+
+  <macro name="issued">
+    <date variable="issued">
+      <date-part name="year"/>
+      <date-part name="month" prefix=" " form="short"/>
+      <date-part name="day" prefix=" "/>
+    </date>
+  </macro>
+
+  <macro name="pages">
+    <text variable="page" prefix=":"/>
+  </macro>
+
+  <macro name="volume">
+    <group delimiter=" ">
+      <text variable="volume"/>
+      <text variable="issue" prefix="(" suffix=")"/>
+    </group>
+  </macro>
+
+  <citation collapse="citation-number">
+    <layout prefix="[" suffix="]" delimiter=",">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+
+  <bibliography>
+    <layout>
+      <group delimiter=". ">
+        <text macro="author"/>
+        <text macro="title"/>
+        <text macro="container-title"/>
+        <text macro="issued"/>
+        <text macro="volume"/>
+        <text macro="pages"/>
+      </group>
+      <text suffix="."/>
+    </layout>
+  </bibliography>
+</style>
